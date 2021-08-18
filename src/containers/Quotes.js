@@ -1,3 +1,8 @@
+// render list of quote cards
+// hook up to store to do this
+// pass callbacks for remove, upvote, and downvote action as props
+// mapDispatch to do this
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
@@ -15,11 +20,9 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              {/*
-                TODO:
-
-                Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
-               */}
+            {/* Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes 
+                Get access to state for quotes
+                map through each and create QutoeCard*/}
             </div>
           </div>
         </div>
@@ -28,5 +31,9 @@ class Quotes extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {quotes: state}
+}
+
 //add arguments to connect as needed
-export default connect()(Quotes);
+export default connect(mapStateToProps)(Quotes);
