@@ -4,7 +4,7 @@
 import React from 'react';
 
 const QuoteCard = (props) =>
-  <div>
+  <div key={props.quote.id}>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
@@ -17,6 +17,7 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-primary"
+            onClick={() => props.upvoteQuote(props.quote.id)}
           >
             Upvote
           </button>
@@ -29,6 +30,10 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-danger"
+            onClick={() => props.removeQuote(props.quote.id)}
+            // remove from store
+            // use callback from quotes this.props.callback(id)
+            // in quotes container go to store with action of remove and pass id
           >
             <span aria-hidden="true">&times;</span>
           </button>
